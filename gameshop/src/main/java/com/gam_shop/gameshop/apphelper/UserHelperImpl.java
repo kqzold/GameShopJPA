@@ -65,7 +65,7 @@ public class UserHelperImpl implements UserHelper {
             System.out.println("Список пользователей:");
             for (User user : users) {
                 System.out.printf("ID: %d, Имя: %s, Пароль: %s Баланс: %.2f%n",
-                        user.getId(), user.getUsername(), user.getBalance());
+                        user.getId(), user.getUsername(), user.getPassword(), user.getBalance());
             }
             return true;
         }catch (Exception e) {
