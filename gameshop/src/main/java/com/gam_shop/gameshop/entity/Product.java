@@ -2,6 +2,9 @@ package com.gam_shop.gameshop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.ArrayList;
+
 @Entity
 public class Product {
     @Id
@@ -11,6 +14,9 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 
     // Constructors
     public Product() {

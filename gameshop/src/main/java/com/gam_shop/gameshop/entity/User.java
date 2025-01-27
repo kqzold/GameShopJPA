@@ -2,6 +2,9 @@ package com.gam_shop.gameshop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -11,6 +14,10 @@ public class User {
     private String username;
     private String password;
     private double balance;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    private List<Order> orders = new ArrayList<>();
 
     // Constructors
     public User() {
